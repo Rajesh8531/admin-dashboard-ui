@@ -13,6 +13,7 @@ import AuthButton from './ui/authbutton.tsx'
 import SeparatorOr from './or-separator';
 import Input from './input/input';
 import setItem from '../actions/setItem.tsx'
+import { useNavigate } from 'react-router-dom';
 
 
 const userSchema = z.object({
@@ -26,6 +27,8 @@ type schemaType = z.infer<typeof userSchema>
 const AuthUI = () => {
 
     const [signIn,setSignIn] = useState(false)
+
+    const navigate = useNavigate()
 
     const toggleSignin = ()=>{
       setSignIn(!signIn)
@@ -65,8 +68,7 @@ const AuthUI = () => {
         
           setItem('profile',res.data)
         toast.success(message)
-        window.location.reload()
-        
+        navigate('/create')
       } catch (error) {
         toast.error("Something went wrong") 
       } finally {
