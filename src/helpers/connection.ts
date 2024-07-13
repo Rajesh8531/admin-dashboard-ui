@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-export const BASE_URL = 'https://admin-dashboard-backend-ybyb.onrender.com/'
+export const BASE_URL = 'http://localhost:8000/'
 
 const API = axios.create({baseURL : BASE_URL})
 

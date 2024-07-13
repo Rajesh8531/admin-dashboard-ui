@@ -46,7 +46,7 @@ export const billboardColumns: ColumnDef<BillboardColumn>[] = [
         try {
           setIsLoading(true)
           await API.delete(`store/${storeId}/billboards/${row.original.id}`)
-          navigate(`store/${storeId}/billboards`)
+          navigate(`/${storeId}/billboards`)
           toast.success("Billboard Deleted")
         } catch (error) {
           toast.error("Something went wrong")

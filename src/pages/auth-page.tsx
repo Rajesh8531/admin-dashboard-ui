@@ -1,28 +1,15 @@
 import AuthUI from '../components/auth-ui'
 import Layout from '../components/layout'
-import getUser from '../actions/getUser'
-import { useNavigate } from 'react-router-dom'
-import { useEffect } from 'react'
+import { GoogleOAuthProvider } from '@react-oauth/google';
 
 const Auth = () => {
 
-  const navigate = useNavigate()
-
-  const user = getUser()
-
-  useEffect(()=>{
-
-    if(user){
-      navigate('/create')
-    }
-    
-  },[])
-
   
-
   return (
     <Layout title='Authentication' >
+      <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID}>
         <AuthUI />
+      </GoogleOAuthProvider>
     </Layout>
   )
 }

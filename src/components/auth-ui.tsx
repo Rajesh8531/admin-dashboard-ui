@@ -5,6 +5,9 @@ import {useForm} from 'react-hook-form'
 import {zodResolver} from '@hookform/resolvers/zod'
 import toast from 'react-hot-toast'
 import { FcGoogle } from "react-icons/fc";
+import { useGoogleLogin} from '@react-oauth/google'
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 import API from '../helpers/connection.ts'
 import CustomTransition from './custom-transition'
@@ -13,7 +16,6 @@ import AuthButton from './ui/authbutton.tsx'
 import SeparatorOr from './or-separator';
 import Input from './input/input';
 import setItem from '../actions/setItem.tsx'
-import { useNavigate } from 'react-router-dom';
 
 
 const userSchema = z.object({
@@ -49,6 +51,21 @@ const AuthUI = () => {
       }
     })
 
+    const googleLogin = useGoogleLogin({
+      onSuccess: async (tokenResponse) => {
+        const { access_token } =  tokenResponse
+        const {data} = await axios.get(`https://www.googleapis.com/oauth2/v3/userinfo`,{headers : {Authorization : `Bearer ${access_token}`}})
+        const userObject = {
+          token : access_token,
+          name : data?.name,
+          id : data?.sub,
+          email : data?.email
+        }
+        setItem('profile',userObject)
+        toast.success("Signed in Successfully")
+        navigate('/create')
+      }
+    });
 
     const {errors} = form.formState
 
@@ -65,7 +82,6 @@ const AuthUI = () => {
             res = await API.post('auth/signup',values)
             message = "Registered Successfully"
           }  
-        
           setItem('profile',res.data)
         toast.success(message)
         navigate('/create')
@@ -73,7 +89,6 @@ const AuthUI = () => {
         toast.error("Something went wrong") 
       } finally {
         setIsLoading(false)
-        console.log("FInal")
       }
     }
 
@@ -82,10 +97,12 @@ const AuthUI = () => {
         <div className='w-[420px] h-auto bg-white rounded-lg p-5 border shadow-2xl' >
             <form onSubmit={form.handleSubmit(onSubmit)} className='flex flex-col gap-y-6 items-center'>
                 <Header title={title} description={description} />
-                <AuthButton disabled={isLoading} className='flex items-center w-full justify-center' type='button' onClick={()=>{}}   >
-                  <FcGoogle className='w-5 h-5 mr-4' />
-                  <p className='text-sm'>Continue with Google</p>
-                </AuthButton>
+
+                    <AuthButton disabled={isLoading} className='flex items-center w-full justify-center' type='button' onClick={()=>googleLogin()}   >
+                      <FcGoogle className='w-5 h-5 mr-4' />
+                      <p className='text-sm'>Continue with Google</p>
+                    </AuthButton>
+                    
                 <SeparatorOr break />
                 {!signIn && (
                   <Input errors={errors} id='user_name' {...form.register('name')} placeholder='Enter your name here' label='Username' disabled={false} />)}

@@ -36,7 +36,7 @@ function App() {
   const router = createBrowserRouter(createRoutesFromElements(
   <>
     <Route path='/auth' element={<AuthPage />} />
-    <Route path='/create' element={<RootPage />} loader={getStores}  >
+    <Route path='/create'  >
       <Route index element={<RootPage />} loader={getStores} />
     </Route>
     <Route path='/' element={<Navbar />} loader={getStores} >
