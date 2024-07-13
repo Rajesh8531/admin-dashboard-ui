@@ -41,7 +41,7 @@ const RootPage = () => {
          await API.post('store/',values)
         storeModal.onClose()
         toast.success("Store created")
-        navigate(0)
+        navigate('/')
       } catch (error) {
         toast.error("Something went wrong") 
       } finally {
