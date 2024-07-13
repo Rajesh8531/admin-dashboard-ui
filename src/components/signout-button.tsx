@@ -4,10 +4,17 @@ import SeparatorOr from "./separator"
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover"
 import signOut from "../actions/signOut"
 import Avatar from "./avatar"
+import { useNavigate } from "react-router-dom"
 
 const SignoutButton = () => {
 
   const user = getUser()
+  const navigate = useNavigate()
+
+  const logOutUser = ()=>{
+    signOut()
+    navigate('/auth')
+  }
 
   return (
     <Popover>
@@ -26,7 +33,7 @@ const SignoutButton = () => {
                   </div>
               </div>
               <SeparatorOr />
-              <div onClick={signOut} className="hover:bg-neutral-100 transition px-6 py-3 flex items-center gap-6 text-[14px] cursor-pointer">
+              <div onClick={logOutUser} className="hover:bg-neutral-100 transition px-6 py-3 flex items-center gap-6 text-[14px] cursor-pointer">
                   <LogOutIcon className="h-4 w-4 text-gray-500" />
                   <p>Sign out</p>
               </div>

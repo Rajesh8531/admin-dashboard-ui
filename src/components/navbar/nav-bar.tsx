@@ -34,7 +34,7 @@ const Navbar = () => {
             <div className="h-full flex justify-between items-center">
                 <SwitchStore stores={stores} />
                 <MainNav />
-                <SignoutButton />
+                <SignoutButton  />
             </div>
         </div>
     <Outlet />
