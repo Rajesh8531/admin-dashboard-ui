@@ -10,8 +10,6 @@ const IndexPage = () => {
   const navigate = useNavigate()
   const user = getUser()
   const data = useLoaderData() as Store[] | null 
-
-  console.log()
   
   useEffect(()=>{
 

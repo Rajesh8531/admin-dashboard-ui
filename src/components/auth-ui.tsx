@@ -13,7 +13,7 @@ import API from '../helpers/connection.ts'
 import CustomTransition from './custom-transition'
 import Header from './auth-header.tsx'
 import AuthButton from './ui/authbutton.tsx'
-import SeparatorOr from './or-separator';
+import Separator from './separator.tsx';
 import Input from './input/input';
 import setItem from '../actions/setItem.tsx'
 
@@ -64,7 +64,8 @@ const AuthUI = () => {
         setItem('profile',userObject)
         toast.success("Signed in Successfully")
         navigate('/create')
-      }
+      },
+      
     });
 
     const {errors} = form.formState
@@ -103,13 +104,13 @@ const AuthUI = () => {
                       <p className='text-sm'>Continue with Google</p>
                     </AuthButton>
                     
-                <SeparatorOr break />
+                <Separator break />
                 {!signIn && (
                   <Input errors={errors} id='user_name' {...form.register('name')} placeholder='Enter your name here' label='Username' disabled={false} />)}
                 <Input disabled={isLoading} errors={errors} id='email' {...form.register('email',{required:true})} type='email' placeholder='Enter your email address here' label='Email address'  />
                 <Input disabled={isLoading} errors={errors} id='password' {...form.register('password',{required:true})} type='password' placeholder='Enter your password here' label='Password'  />
                 <AuthButton disabled={isLoading} type='submit' className='flex items-center justify-center' variant='secondary' onClick={()=>{}} >Continue<IoIosPlay className='h-3 w-3 ml-2 ' /> </AuthButton>
-                <SeparatorOr />
+                <Separator />
                 <div className='text-sm flex items-center justify-center'>
                   <p className='text-neutral-500 mr-2'>{text}</p>
                   <p onClick={toggleSignin} className='hover:underline cursor-pointer '>{signIn ? 'Sign up' : 'Sign in'}</p>

@@ -3,7 +3,7 @@ import Container from "../components/container"
 import Header from "../components/ui/header"
 import Input from "../components/input/input"
 import Layout from "../components/layout"
-import SeparatorOr from "../components/or-separator"
+import SeparatorOr from "../components/separator"
 import * as z from 'zod'
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"

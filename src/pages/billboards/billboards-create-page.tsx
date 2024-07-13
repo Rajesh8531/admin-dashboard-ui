@@ -4,7 +4,7 @@ import Layout from "../../components/layout"
 import Header from "../../components/ui/header"
 import { useEffect, useState } from "react"
 import { BillBoard } from "../../types"
-import SeparatorOr from "../../components/or-separator"
+import SeparatorOr from "../../components/separator"
 import Input from "../../components/input/input"
 import * as z from 'zod'
 import { zodResolver } from "@hookform/resolvers/zod"

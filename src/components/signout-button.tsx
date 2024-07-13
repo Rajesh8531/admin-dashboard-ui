@@ -1,6 +1,6 @@
 import { LogOutIcon} from "lucide-react"
 import getUser from "../actions/getUser"
-import SeparatorOr from "./or-separator"
+import SeparatorOr from "./separator"
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover"
 import signOut from "../actions/signOut"
 import Avatar from "./avatar"

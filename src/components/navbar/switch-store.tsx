@@ -6,7 +6,7 @@ import { Popover,PopoverTrigger, PopoverContent } from '../ui/popover'
 import { Command, CommandGroup, CommandInput, CommandItem, CommandList } from '../ui/command'
 import { Button } from '../ui/button'
 import { cn } from '../lib/utils'
-import SeparatorOr from '../or-separator'
+import SeparatorOr from '../separator'
 import useStoreModal from '../../hooks/create-store-modal-store'
 
 interface SwitchStoreProps {

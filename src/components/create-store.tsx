@@ -9,11 +9,11 @@ import API from '../helpers/connection'
 import { useNavigate } from 'react-router-dom'
 import useStoreModal from '../hooks/create-store-modal-store'
 
-const billboardSchema = z.object({
+const storeSchema = z.object({
   name : z.string().min(1),
 })
 
-type billboardType = z.infer<typeof billboardSchema>
+type storeType = z.infer<typeof storeSchema>
 
 const CreateStoreModal = ({
 }) => {
@@ -23,14 +23,14 @@ const CreateStoreModal = ({
     
     const storeModal = useStoreModal()
     
-    const form = useForm<billboardType>({
-      resolver : zodResolver(billboardSchema),
+    const form = useForm<storeType>({
+      resolver : zodResolver(storeSchema),
       defaultValues : {
         name : ''
       }
     })
 
-    const onSubmit = async (values:billboardType)=>{
+    const onSubmit = async (values:storeType)=>{
       try {
         setIsLoading(true)
          await API.post('store/',values)

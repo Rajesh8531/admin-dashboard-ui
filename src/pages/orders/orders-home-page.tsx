@@ -4,7 +4,7 @@ import Header from "../../components/ui/header"
 import { useLoaderData } from "react-router-dom"
 import { Order, OrderItem, Product } from "../../types"
 import {format} from 'date-fns'
-import SeparatorOr from "../../components/or-separator"
+import SeparatorOr from "../../components/separator"
 import APIList from "../../components/ui/api-list"
 import { OrderTable } from "../../components/orders/orders-table"
 import { orderColumns } from "../../components/orders/orders-columns"

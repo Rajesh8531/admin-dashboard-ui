@@ -7,7 +7,7 @@ import { useLoaderData, useNavigate, useParams } from "react-router-dom"
 import { BillBoard, Category } from "../../types"
 import { DataTable } from "../../components/category/category-table"
 import {format} from 'date-fns'
-import SeparatorOr from "../../components/or-separator"
+import SeparatorOr from "../../components/separator"
 import APIList from "../../components/ui/api-list"
 import { categoryColumns } from "../../components/category/category-columns"
 

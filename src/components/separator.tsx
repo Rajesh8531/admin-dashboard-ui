@@ -1,7 +1,7 @@
 interface SeparatorOrProps {
   break? : boolean;
 }
-const SeparatorOr:React.FC<SeparatorOrProps> = (props) => {
+const Separator:React.FC<SeparatorOrProps> = (props) => {
   return (
     <div className='h-[1px] w-full flex justify-between items-center'>
         <div className='bg-neutral-200 h-full flex-1' />
@@ -11,4 +11,4 @@ const SeparatorOr:React.FC<SeparatorOrProps> = (props) => {
   )
 }
 
-export default SeparatorOr
+export default Separator

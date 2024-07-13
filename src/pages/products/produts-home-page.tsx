@@ -6,7 +6,7 @@ import Header from "../../components/ui/header"
 import { useLoaderData, useNavigate, useParams } from "react-router-dom"
 import { Category, Color, Image, Product, Size } from "../../types"
 import {format} from 'date-fns'
-import SeparatorOr from "../../components/or-separator"
+import SeparatorOr from "../../components/separator"
 import APIList from "../../components/ui/api-list"
 import { ProductDataTable } from "../../components/products/products-table"
 import { productColumns } from "../../components/products/products-columns"

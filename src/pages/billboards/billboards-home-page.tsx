@@ -8,7 +8,7 @@ import { BillBoard } from "../../types"
 import { DataTable } from "../../components/billboard/billboard-table"
 import { billboardColumns } from "../../components/billboard/billboard-columns"
 import {format} from 'date-fns'
-import SeparatorOr from "../../components/or-separator"
+import SeparatorOr from "../../components/separator"
 import APIList from "../../components/ui/api-list"
 
 const BillboardPage = () => {

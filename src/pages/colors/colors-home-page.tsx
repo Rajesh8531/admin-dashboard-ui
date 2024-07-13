@@ -6,7 +6,7 @@ import Header from "../../components/ui/header"
 import { useLoaderData, useNavigate, useParams } from "react-router-dom"
 import { Color } from "../../types"
 import {format} from 'date-fns'
-import SeparatorOr from "../../components/or-separator"
+import SeparatorOr from "../../components/separator"
 import APIList from "../../components/ui/api-list"
 import { ColorDataTable } from "../../components/colors/color-table"
 import { ColorColumns } from "../../components/colors/color-columns"
