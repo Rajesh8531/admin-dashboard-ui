@@ -1,8 +1,10 @@
+import { useNavigate } from "react-router-dom"
 
 
 const signOut = () => {
+  const navigate = useNavigate()
   localStorage.removeItem('profile')
-  window.location.reload()
+  navigate('/')
 }
 
 export default signOut
