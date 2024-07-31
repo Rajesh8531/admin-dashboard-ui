@@ -13,7 +13,6 @@ const getOverviewData = async ({params} :{params:any} ) => {
   const stores = await getStores() || []
   const products = await getProducts({params}) || []
   const remainingProducts = products?.filter((product:Product)=>product.isArchived===false) || []
-  console.log(products)
 
   return {orders,stores,remainingProducts,data}
 }
