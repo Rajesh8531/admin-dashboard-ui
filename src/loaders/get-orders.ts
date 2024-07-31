@@ -6,7 +6,7 @@ const getOrders = async ({params} :{params:any} ) => {
 
   const {data} = await API.get(`store/${storeId}/orders`)
 
-  return data
+  return data || []
 }
 
 export default getOrders

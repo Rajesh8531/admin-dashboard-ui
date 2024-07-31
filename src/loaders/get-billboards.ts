@@ -6,7 +6,7 @@ const getBillboards = async ({params} :{params:any} ) => {
 
   const {data} = await API.get(`/store/${storeId}/billboards`)
 
-  return data
+  return data || []
 }
 
 export default getBillboards

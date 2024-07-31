@@ -65,14 +65,13 @@ const ProductCreatePage = () => {
   const images = data?.product?.image
   const route = data.product ? 'update' : 'create'
   const imageArray = images?.map((image)=>image.url)
-  console.log(imageArray)
 
   const form = useForm<schemaType>({
     resolver : zodResolver(productSchema),
     defaultValues : {
       name : data?.product?.name || '',
       imageUrl : imageArray || [],
-      price : data?.product?.price.toString() || '1',
+      price : `${data?.product?.price}` || '1',
       categoryId : data?.product?.categoryId || '',
       colorId : data?.product?.colorId || '',
       isArchived : data?.product?.isArchived || false,

@@ -126,7 +126,7 @@ const CategoriesCreatePage = () => {
                     <Input  disabled={isLoading} show {...form.register('name',{required:true})} errors={errors} label='Name'  placeholder='Billboard Label' id='label'  />
                     <div className="space-y-[0.7em]">
                         <p className="text-sm">Billboard</p>
-                        <Select onValueChange={onChange} defaultValue={category?.billboard.id}>
+                        <Select onValueChange={onChange} defaultValue={category?.billboard?.id}>
                             <SelectTrigger>
                                 <SelectValue placeholder="Select a billboard" />
                             </SelectTrigger>
@@ -135,8 +135,8 @@ const CategoriesCreatePage = () => {
                                     <SelectLabel>Billboards</SelectLabel>
                                     {billboards?.map((billboard)=>(
                                         <SelectItem
-                                        key={billboard.id}
-                                        value={billboard.id}>{billboard.label}</SelectItem>
+                                        key={billboard?.id}
+                                        value={billboard?.id}>{billboard?.label}</SelectItem>
                                     ))}
                                 </SelectGroup>
                             </SelectContent>

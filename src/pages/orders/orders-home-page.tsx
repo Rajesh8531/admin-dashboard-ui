@@ -20,6 +20,7 @@ type loaderDataType = Order & {
 const OrdersPage = () => {
 
   const orders = useLoaderData() as loaderDataType[]
+  console.log(orders)
 
   const formattedOrders = orders?.map((order)=>({
     id : order.id,
@@ -49,7 +50,7 @@ const OrdersPage = () => {
     <Layout title="Orders">
       <Container className="relative flex flex-col gap-4">
         <Header title="Orders" description="Manage orders for your store" />
-        <OrderTable searchKey="products" columns={orderColumns} data={formattedOrders} />
+        <OrderTable searchKey="products" columns={orderColumns} data={formattedOrders || []} />
         <Header title="API" description="API calls for Orders"/>
         <SeparatorOr />
         <APIList

@@ -66,6 +66,8 @@ export type OrderItem = {
     productId: string;
 }
 
+export type FullOrderItem = OrderItem & {product : Product}
+
 export type Product = {
     id: string;
     storeId: string;
@@ -78,6 +80,10 @@ export type Product = {
     colorId: string;
     createdAt: Date;
     updatedAt: Date;
+}
+
+export type FullOrderType = Order & {
+    orderItems : FullOrderItem[]
 }
 
 export type Size = {

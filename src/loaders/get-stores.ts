@@ -16,7 +16,7 @@ const getStores = async () => {
     }
   })
 
-  return data
+  return data || []
 }
 
 export default getStores

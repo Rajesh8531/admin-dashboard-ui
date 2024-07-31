@@ -30,6 +30,7 @@ import Product_with_Colors_Categories_Sizes from './loaders/get-color-size-categ
 import getProducts from './loaders/get-products'
 import OrdersPage from './pages/orders/orders-home-page'
 import getOrders from './loaders/get-orders'
+import getOverviewData from './loaders/get-overview-data'
 
 function App() {
 
@@ -38,7 +39,7 @@ function App() {
     <Route path='/auth' element={<AuthPage />} />
     <Route path='/create' element={<RootPage />} loader={getStores}  />
     <Route path='/' element={<Navbar />} loader={getStores} >
-      <Route path=':storeId' element={<IndexPage />} loader={getStore} />
+      <Route path=':storeId' element={<IndexPage />} loader={getOverviewData}  />
       <Route path=':storeId/billboards/' >
         <Route index element={<BillboardPage />} loader={getBillboards}  /> 
         <Route path=':billboardId' element={<BillboardCreatePage />} loader={getBillboard}/>

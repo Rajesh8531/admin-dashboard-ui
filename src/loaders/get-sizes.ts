@@ -6,7 +6,7 @@ const getSizes = async ({params} :{params:any} ) => {
 
   const {data} = await API.get(`store/${storeId}/sizes`)
 
-  return data
+  return data || []
 }
 
 export default getSizes

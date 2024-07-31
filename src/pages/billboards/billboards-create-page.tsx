@@ -59,8 +59,6 @@ const BillboardCreatePage = () => {
 
   const {errors} = form.formState
 
- 
-
   const onSubmit =async (data:schemaType)=>{
     try {
       setIsLoading(true)

@@ -26,13 +26,13 @@ const ProductHomePage = () => {
   const products = useLoaderData() as productType[] 
 
   const formattedProducts = products.map((product)=>({
-    id : product.id,
-    name : product.name,
-    isArchived : product.isArchived,
-    isFeatured : product.isFeatured,
-    category : product.category.name,
-    size : product.size.name,
-    color : product.color.value,
+    id : product?.id,
+    name : product?.name,
+    isArchived : product?.isArchived,
+    isFeatured : product?.isFeatured,
+    category : product?.category?.name,
+    size : product?.size?.name,
+    color : product?.color?.value,
     createdAt : format(product.createdAt,'MMMM do, yyyy'),
     price : `${product.price}`
   }))

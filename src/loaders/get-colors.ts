@@ -6,7 +6,7 @@ const getColors = async ({params} :{params:any} ) => {
 
   const {data} = await API.get(`store/${storeId}/colors`)
 
-  return data
+  return data || []
 }
 
 export default getColors

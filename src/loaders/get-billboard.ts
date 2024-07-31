@@ -6,7 +6,7 @@ const getBillboard = async ({params} :{params:any} ) => {
 
   const {data} = await API.get(`/store/${storeId}/billboards/${billboardId}`)
 
-  return data
+  return data || null
 }
 
 export default getBillboard
