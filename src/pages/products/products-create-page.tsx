@@ -59,11 +59,11 @@ const ProductCreatePage = () => {
     }
   },[])
 
-  const sizes = data.sizes
-  const colors = data.colors
-  const categories = data.categories
+  const sizes = data?.sizes
+  const colors = data?.colors
+  const categories = data?.categories
   const images = data?.product?.image
-  const route = data.product ? 'update' : 'create'
+  const route = data?.product ? 'update' : 'create'
   const imageArray = images?.map((image)=>image.url)
 
   const form = useForm<schemaType>({
@@ -71,11 +71,11 @@ const ProductCreatePage = () => {
     defaultValues : {
       name : data?.product?.name || '',
       imageUrl : imageArray || [],
-      price : `${data?.product?.price}` || '1',
+      price : `${data?.product?.price}` || `1`,
       categoryId : data?.product?.categoryId || '',
       colorId : data?.product?.colorId || '',
-      isArchived : data?.product?.isArchived || false,
-      isFeatured : data?.product?.isFeatured || false,
+      isArchived : data?.product?.isArchived || (data?.product as any)?.archived || false,
+      isFeatured : data?.product?.isFeatured || (data?.product as any)?.featured|| false,
       sizeId : data?.product?.sizeId || ''
     }
   })

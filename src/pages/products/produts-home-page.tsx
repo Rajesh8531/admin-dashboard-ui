@@ -28,8 +28,8 @@ const ProductHomePage = () => {
   const formattedProducts = products.map((product)=>({
     id : product?.id,
     name : product?.name,
-    isArchived : product?.isArchived,
-    isFeatured : product?.isFeatured,
+    isArchived : product?.isArchived || (product as any)?.archived,
+    isFeatured : product?.isFeatured || (product as any)?.featured,
     category : product?.category?.name,
     size : product?.size?.name,
     color : product?.color?.value,
